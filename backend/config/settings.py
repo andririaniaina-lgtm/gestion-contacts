@@ -22,6 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-votre-cle-de-dev-locale')
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
@@ -141,10 +142,7 @@ MAILERS = {
 }
 
 # Configuration CORS (autorise React à parler à Django)
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",   # Vite (React dev server)
-    "http://127.0.0.1:5173",
-]
+CORS_ALLOW_ALL_ORIGINS = True  # ⚠️ DEV UNIQUEMENT
 CORS_ALLOW_CREDENTIALS = True
 
 # Configuration Django REST Framework

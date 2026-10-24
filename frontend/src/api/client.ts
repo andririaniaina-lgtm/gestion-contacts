@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // URL de base de notre API Django
-const API_BASE_URL = 'http://127.0.0.1:8000/api';
+const API_BASE_URL = 'https://gestion-contacts-api.onrender.com/api';
 
 // Clé utilisée pour stocker le token dans localStorage
 const TOKEN_KEY = 'auth_token';

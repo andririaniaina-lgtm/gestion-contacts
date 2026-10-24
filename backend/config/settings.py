@@ -69,10 +69,11 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'staticfiles')],  # ← AJOUTE CETTE LIGNE
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
@@ -142,7 +143,7 @@ MAILERS = {
 }
 
 # Configuration CORS (autorise React à parler à Django)
-CORS_ALLOW_ALL_ORIGINS = True  # ⚠️ DEV UNIQUEMENT
+CORS_ALLOW_ALL_ORIGINS = True  
 CORS_ALLOW_CREDENTIALS = True
 
 # Configuration Django REST Framework
@@ -168,5 +169,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Configuration pour Render / Production
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # déjà existant
+STATICFILES_DIRS = []  # ← AJOUTE CETTE LIGNE (le dossier sera créé par Vite)
+
+# Pour servir les assets de React (dans /assets/)
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

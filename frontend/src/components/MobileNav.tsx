@@ -45,7 +45,7 @@ const styles: Record<string, React.CSSProperties> = {
     height: 64,
     background: 'white',
     borderTop: '1px solid var(--color-border)',
-    display: 'none', // caché par défaut (sera affiché via media query)
+    display: 'none',
     zIndex: 100,
   },
   link: {

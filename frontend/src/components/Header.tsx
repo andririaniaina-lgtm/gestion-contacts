@@ -25,19 +25,19 @@ export function Header() {
   return (
     <header style={styles.header}>
       <div style={styles.spacer} />
-
       <div style={styles.userArea}>
         <button
           onClick={() => setShowMenu((v) => !v)}
           style={styles.userButton}
         >
           <div style={styles.avatar}>{initials}</div>
-          <span style={styles.userName} className="header-username">{displayName}</span>
+          <span style={styles.userName} className="header-username">
+            {displayName}
+          </span>
         </button>
 
         {showMenu && (
           <>
-            {/* Overlay pour fermer au clic extérieur */}
             <div
               style={styles.overlay}
               onClick={() => setShowMenu(false)}

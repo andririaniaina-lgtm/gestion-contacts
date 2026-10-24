@@ -21,12 +21,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-!rz0t1oe=ylr!7!xkd^@@)^*n1mo@pjaa&@oq_$^+@tc@3t%bt'
-
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-votre-cle-de-dev-locale')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 
 # Application definition
@@ -51,6 +54,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',  # ← AJOUTÉ EN PREMIER
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -136,19 +140,14 @@ MAILERS = {
     },
 }
 
-
-# ============================================================
 # Configuration CORS (autorise React à parler à Django)
-# ============================================================
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",   # Vite (React dev server)
     "http://127.0.0.1:5173",
 ]
 CORS_ALLOW_CREDENTIALS = True
 
-# ============================================================
 # Configuration Django REST Framework
-# ============================================================
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
@@ -165,8 +164,11 @@ REST_FRAMEWORK = {
     ],
 }
 
-# ============================================================
 # Fichiers média (photos des contacts)
-# ============================================================
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Configuration pour Render / Production
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { UserPlus, AlertCircle } from 'lucide-react';
+import { UserPlus, AlertCircle, Eye, EyeOff } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 export function RegisterPage() {
@@ -17,6 +17,7 @@ export function RegisterPage() {
   });
   const [error, setError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (field: string, value: string) => {
     setForm((prev) => ({ ...prev, [field]: value }));
@@ -39,7 +40,6 @@ export function RegisterPage() {
       const data = axiosError.response?.data;
       
       if (data && typeof data === 'object') {
-        // Récupère la première erreur renvoyée par Django
         const firstError = Object.values(data)[0];
         if (Array.isArray(firstError)) {
           setError(firstError[0]);
@@ -103,13 +103,28 @@ export function RegisterPage() {
             onChange={(v) => handleChange('email', v)}
             required
           />
-          <Field
-            label="Mot de passe"
-            type="password"
-            value={form.password}
-            onChange={(v) => handleChange('password', v)}
-            required
-          />
+
+          <div style={styles.field}>
+            <label style={styles.label}>Mot de passe</label>
+            <div style={styles.passwordWrapper}>
+              <input
+                type={showPassword ? 'text' : 'password'}
+                value={form.password}
+                onChange={(e) => handleChange('password', e.target.value)}
+                required
+                style={{ ...styles.input, paddingRight: '2.5rem' }}
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                style={styles.eyeButton}
+                title={showPassword ? 'Masquer' : 'Afficher'}
+              >
+                {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+              </button>
+            </div>
+          </div>
+
           <Field
             label="Confirmer le mot de passe"
             type="password"
@@ -224,6 +239,25 @@ const styles: Record<string, React.CSSProperties> = {
     borderRadius: 'var(--radius)',
     fontSize: '0.95rem',
     outline: 'none',
+  },
+  passwordWrapper: {
+    position: 'relative',
+    display: 'flex',
+    alignItems: 'center',
+  },
+  eyeButton: {
+    position: 'absolute',
+    right: 14,
+    top: '50%',
+    transform: 'translateY(-50%)',
+    background: 'none',
+    border: 'none',
+    cursor: 'pointer',
+    color: 'var(--color-text-muted)',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 0,
   },
   button: {
     padding: '0.85rem',

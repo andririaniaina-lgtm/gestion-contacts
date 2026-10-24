@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { User, Lock, AlertCircle } from 'lucide-react';
+import { User, Lock, AlertCircle, Eye, EyeOff } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 export function LoginPage() {
@@ -11,6 +11,7 @@ export function LoginPage() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -31,10 +32,10 @@ export function LoginPage() {
   return (
     <div style={styles.container}>
       <div style={styles.card}>
-           <div style={styles.header}>
-              <h1 style={styles.title}>Connexion</h1>
-              <p style={styles.subtitle}>Accédez à votre gestion de contacts</p>
-            </div>
+        <div style={styles.header}>
+          <h1 style={styles.title}>Connexion</h1>
+          <p style={styles.subtitle}>Accédez à votre gestion de contacts</p>
+        </div>
 
         {error && (
           <div style={styles.errorBox}>
@@ -65,13 +66,21 @@ export function LoginPage() {
             <div style={styles.inputWrapper}>
               <Lock size={18} style={styles.inputIcon} />
               <input
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
                 required
-                style={styles.input}
+                style={{ ...styles.input, paddingRight: '2.75rem' }}
               />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                style={styles.eyeButton}
+                title={showPassword ? 'Masquer' : 'Afficher'}
+              >
+                {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+              </button>
             </div>
           </div>
 
@@ -91,10 +100,6 @@ export function LoginPage() {
   );
 }
 
-// ============================================================
-// STYLES
-// ============================================================
-
 const styles: Record<string, React.CSSProperties> = {
   container: {
     minHeight: '100vh',
@@ -113,7 +118,6 @@ const styles: Record<string, React.CSSProperties> = {
     boxShadow: 'var(--shadow-lg)',
   },
   header: { textAlign: 'center', marginBottom: '2rem' },
-
   title: {
     fontSize: '1.75rem',
     fontWeight: 700,
@@ -134,11 +138,7 @@ const styles: Record<string, React.CSSProperties> = {
   },
   form: { display: 'flex', flexDirection: 'column', gap: '1.25rem' },
   field: { display: 'flex', flexDirection: 'column', gap: '0.4rem' },
-  label: {
-    fontSize: '0.85rem',
-    fontWeight: 500,
-    color: 'var(--color-text)',
-  },
+  label: { fontSize: '0.85rem', fontWeight: 500, color: 'var(--color-text)' },
   inputWrapper: { position: 'relative' },
   inputIcon: {
     position: 'absolute',
@@ -156,6 +156,20 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: '0.95rem',
     outline: 'none',
     transition: 'var(--transition)',
+  },
+  eyeButton: {
+    position: 'absolute',
+    right: 14,
+    top: '50%',
+    transform: 'translateY(-50%)',
+    background: 'none',
+    border: 'none',
+    cursor: 'pointer',
+    color: 'var(--color-text-muted)',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 0,
   },
   button: {
     padding: '0.85rem',

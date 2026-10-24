@@ -4,9 +4,7 @@ from rest_framework import serializers
 from .models import Category, Contact
 
 
-# ============================================================
 # AUTHENTIFICATION
-# ============================================================
 
 class UserSerializer(serializers.ModelSerializer):
     """Pour renvoyer les infos de l'utilisateur connecté."""
@@ -58,9 +56,7 @@ class RegisterSerializer(serializers.ModelSerializer):
         return user
 
 
-# ============================================================
 # CATEGORY
-# ============================================================
 
 class CategorySerializer(serializers.ModelSerializer):
     """Serializer pour les catégories."""
@@ -86,9 +82,7 @@ class CategorySerializer(serializers.ModelSerializer):
         return value
 
 
-# ============================================================
 # CONTACT
-# ============================================================
 
 class ContactSerializer(serializers.ModelSerializer):
     """Serializer complet pour les contacts."""

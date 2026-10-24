@@ -1,0 +1,32 @@
+# ===== Python / Django =====
+__pycache__/
+*.py[cod]
+*.pyc
+*.egg-info/
+.venv/
+venv/
+env/
+*.log
+db.sqlite3
+db.sqlite3-journal
+/backend/media/
+/backend/staticfiles/
+.env
+.env.local
+
+# ===== Node / React =====
+node_modules/
+dist/
+build/
+.vite/
+*.local
+
+# ===== VS Code =====
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# ===== Système =====
+.DS_Store
+Thumbs.db
+desktop.ini

@@ -1,0 +1,21 @@
+Prénom;Nom;Email;Téléphone;Adresse;Ville;Entreprise;Fonction;Catégorie;Notes;Favori
+Jean;Martin;jean.martin@test.com;+261 34 11 223 34;12 rue de la Paix;Antananarivo;TechCorp;Développeur;Travail;Développeur senior;Oui
+Sophie;Bernard;sophie.bernard@test.com;+261 33 22 334 45;5 avenue de l'Indépendance;Antananarivo;DataCorp;Analyste;Travail;Experte data;Non
+Marc;Petit;marc.petit@test.com;+261 32 33 445 56;10 rue des Roses;Toamasina;DesignStudio;Designer;Amis;Ami d'enfance;Oui
+Julie;Durand;julie.durand@test.com;+261 34 44 556 67;25 rue du Port;Antananarivo;MarketingPro;Chef de projet;Travail;;Non
+Pierre;Lefebvre;pierre.lefebvre@test.com;+261 33 55 667 78;8 rue des Écoles;Antsirabe;Université;Professeur;Famille;Ancien prof;Non
+Claire;Moreau;claire.moreau@test.com;+261 32 66 778 89;42 rue Nationale;Fianarantsoa;CliniqueCentrale;Médecin;Famille;Cousine;Oui
+Thomas;Simon;thomas.simon@test.com;+261 34 77 889 90;15 rue du Commerce;Antananarivo;LogiTrans;Chauffeur;Amis;;Non
+Émilie;Laurent;emilie.laurent@test.com;+261 33 88 990 01;3 rue des Lilas;Toamasina;HôtelBeach;Réceptionniste;Amis;;Non
+Nicolas;Michel;nicolas.michel@test.com;+261 32 99 001 12;7 rue Pasteur;Antananarivo;BanqueNatio;Conseiller;Travail;Contact bancaire;Non
+Laura;Garcia;laura.garcia@test.com;+261 34 00 112 23;20 avenue de France;Antsirabe;ModeShop;Vendeuse;Amis;;Non
+David;Roux;david.roux@test.com;+261 33 11 223 34;11 rue Victor Hugo;Antananarivo;AutoPlus;Mécanicien;Travail;;Oui
+Anne;Fournier;anne.fournier@test.com;+261 32 22 334 45;6 rue des Acacias;Fianarantsoa;JardinBio;Gérante;Amis;Productrice bio;Non
+Julien;Girard;julien.girard@test.com;+261 34 33 445 56;14 rue Gambetta;Antananarivo;StartupTech;CTO;Travail;Investisseur potentiel;Oui
+Céline;Bonnet;celine.bonnet@test.com;+261 33 44 556 67;9 rue de la Gare;Toamasina;SnackRapide;Serveuse;Amis;;Non
+Vincent;Dupont;vincent.dupont@test.com;+261 32 55 667 78;18 rue des Prés;Antsirabe;FermeDupont;Agriculteur;Famille;Oncle;Non
+Marine;Lambert;marine.lambert@test.com;+261 34 66 778 89;22 rue des Fleurs;Antananarivo;AgenceVoyage;Conseillère;Travail;Voyages;Non
+Antoine;Fontaine;antoine.fontaine@test.com;+261 33 77 889 90;5 rue Molière;Fianarantsoa;LibrairieCentrale;Libraire;Amis;;Non
+Chloé;Rousseau;chloe.rousseau@test.com;+261 32 88 990 01;16 rue de la Liberté;Antananarivo;StudioPhoto;Photographe;Travail;Photographe mariage;Oui
+Maxime;Vincent;maxime.vincent@test.com;+261 34 99 001 12;4 rue des Vignes;Toamasina;VignobleSud;Œnologue;Amis;;Non
+Léa;Muller;lea.muller@test.com;+261 33 00 112 23;30 rue du Théâtre;Antananarivo;ThéâtreNatio;Comédienne;Amis;Spectacle en mars;Non

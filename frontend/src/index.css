@@ -92,4 +92,41 @@ input, textarea, select {
 @keyframes spin {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
+}  
+
+/* RESPONSIVE - TABLETTES ET MOBILES */
+@media (max-width: 768px) {
+  aside {
+    display: none !important;
+  }
+
+  header {
+    justify-content: space-between !important;
+  }
+
+  main {
+    padding: 1rem !important;
+    padding-bottom: 80px !important;
+  }
+
+  .responsive-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Afficher la barre de nav mobile seulement sur petit écran */
+@media (max-width: 768px) {
+  nav[style] {
+    display: flex !important;
+  }
+}
+@media (max-width: 768px) {
+  .header-username {
+    display: none !important;
+  }
+}
+@media (max-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr !important;
+  }
 }

@@ -32,7 +32,7 @@ export function Header() {
           style={styles.userButton}
         >
           <div style={styles.avatar}>{initials}</div>
-          <span style={styles.userName}>{displayName}</span>
+          <span style={styles.userName} className="header-username">{displayName}</span>
         </button>
 
         {showMenu && (

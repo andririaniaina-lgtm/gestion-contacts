@@ -89,7 +89,7 @@ export function DashboardPage() {
           <span>Chargement...</span>
         </div>
       ) : (
-        <div style={styles.grid}>
+        <div className="dashboard-grid" style={styles.grid}>
           {cards.map((card) => (
             <Link key={card.label} to={card.to} style={styles.card}>
               <div style={{ ...styles.cardIcon, background: card.bg }}>

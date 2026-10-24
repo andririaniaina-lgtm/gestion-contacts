@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import { Sidebar } from './Sidebar';
 import { Header } from './Header';
+import { MobileNav } from './MobileNav';
 
 export function Layout() {
   return (
@@ -11,6 +12,7 @@ export function Layout() {
         <main style={styles.content}>
           <Outlet />
         </main>
+        <MobileNav />
       </div>
     </div>
   );

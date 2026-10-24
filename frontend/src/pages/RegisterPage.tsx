@@ -33,13 +33,25 @@ export function RegisterPage() {
     } catch (err: unknown) {
       const axiosError = err as {
         response?: { data?: Record<string, string[] | string> };
+        message?: string;
       };
+      
       const data = axiosError.response?.data;
-      if (data) {
+      
+      if (data && typeof data === 'object') {
+        // Récupère la première erreur renvoyée par Django
         const firstError = Object.values(data)[0];
-        setError(Array.isArray(firstError) ? firstError[0] : String(firstError));
+        if (Array.isArray(firstError)) {
+          setError(firstError[0]);
+        } else if (typeof firstError === 'string') {
+          setError(firstError);
+        } else {
+          setError("Erreur de validation. Vérifiez vos champs.");
+        }
+      } else if (axiosError.message) {
+        setError(axiosError.message);
       } else {
-        setError("Erreur lors de l'inscription.");
+        setError("Erreur lors de l'inscription. Veuillez réessayer.");
       }
     } finally {
       setIsSubmitting(false);

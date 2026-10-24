@@ -12,15 +12,6 @@ import { FavoritesPage } from './pages/FavoritesPage';
 import { TrashPage } from './pages/TrashPage';
 import { ProfilePage } from './pages/ProfilePage';
 
-// Pages temporaires (on les créera plus tard)
-const PlaceholderPage = ({ title }: { title: string }) => (
-  <div style={{ padding: '2rem' }}>
-    <h1>{title}</h1>
-    <p style={{ color: 'var(--color-text-secondary)', marginTop: '0.5rem' }}>
-       Cette page arrive bientôt.
-    </p>
-  </div>
-);
 
 function App() {
   return (
